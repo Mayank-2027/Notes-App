@@ -18,7 +18,8 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response =await axios.post('http://localhost:8080/api/auth/register',{name,email,password});
+      const apiUrl = import.meta.env.VITE_API_URL;
+      const response =await axios.post(`${apiUrl}/api/auth/register`,{name,email,password});
     
       if(response.data.success){
         navigate("/login")

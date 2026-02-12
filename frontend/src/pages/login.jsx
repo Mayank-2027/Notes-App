@@ -20,7 +20,8 @@ const Login = () => {
   const handleSubmit = async(e) =>{
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login',{email,password});
+      const apiUrl = import.meta.env.VITE_API_URL;
+      const response = await axios.post(`${apiUrl}/api/auth/login`,{email,password});
 
       if(response.data.success){
         localStorage.setItem("token",response.data.token)

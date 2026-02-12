@@ -42,9 +42,11 @@ export default function Home (){
       );
     },[query,notes]);
 
+    const apiUrl = import.meta.env.VITE_API_URL;
+
     const fetchNotes = async ()=>{
       try {
-        const{data} = await axios.get("http://localhost:8080/api/note", {
+        const{data} = await axios.get(`${apiUrl}/api/note`, {
           headers :{
             Authorization:`Bearer ${localStorage.getItem("token")}`
           }
@@ -70,7 +72,7 @@ export default function Home (){
     const addNote = async({title,description})=>{
         try {
             const response = await axios.post(
-              "http://localhost:8080/api/note/add",
+              `${apiUrl}/api/note/add`,
               { title, description },{
                 headers :{
                     Authorization:`Bearer ${localStorage.getItem("token")}`
@@ -92,7 +94,7 @@ export default function Home (){
     const editNote= async({_id,title,description})=>{
       try {
         const response = await axios.put(
-          `http://localhost:8080/api/note/${_id}`,
+          `${apiUrl}/api/note/${_id}`,
           { title, description },{
             headers :{
                 Authorization:`Bearer ${localStorage.getItem("token")}`
@@ -114,7 +116,7 @@ export default function Home (){
     const deleteNote = async(id)=>{
       try {
         const response = await axios.delete(
-          `http://localhost:8080/api/note/${id}`,
+          `${apiUrl}/api/note/${id}`,
          {
             headers :{
                 Authorization:`Bearer ${localStorage.getItem("token")}`
