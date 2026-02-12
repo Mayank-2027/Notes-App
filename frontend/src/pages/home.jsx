@@ -1,4 +1,4 @@
-import Navbar from "/Users/mayank/Desktop/Programming/react project/NOTES APP/frontend/components/navbar.jsx"
+import Navbar from "../../components/navbar.jsx";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {toast} from 'react-toastify';
@@ -6,9 +6,9 @@ import {toast} from 'react-toastify';
 
 
 
-import NotesModel from '/Users/mayank/Desktop/Programming/react project/NOTES APP/frontend/components/NotesModel.jsx'
+import NotesModel from "../../components/NotesModel.jsx";
 import {useState,useEffect} from 'react'
-import NoteCard from "../../components/NoteCard";
+import NoteCard from "../../components/NoteCard.jsx";
 
 
 
